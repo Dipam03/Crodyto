@@ -544,7 +544,7 @@ checkoutForm.addEventListener('submit', async (e)=>{
     // emailjs.send(serviceID, templateID, templateParams)
     const resp = await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, templateParams);
     orderMsg.style.display = 'block';
-    orderMsg.innerHTML = `Order ${orderId} placed — Now you can continue yor shoping!`;
+    orderMsg.innerHTML = `Order ${orderId} placed — Now you can continue your shoping!`;
     // Clear cart if we checked out cart items
     // If checkoutItems correspond to entire cart, clear cart
     if (checkoutItems.length === cart.length) { cart = []; saveCart(); }
