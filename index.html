@@ -542,7 +542,7 @@ checkoutForm.addEventListener('submit', async (e)=>{
 
   try {
     // emailjs.send(serviceID, templateID, templateParams)
-    const resp = await emailjs.send(service_c4p68ag, template_214uijp, { name: "Dipam", time: new Date().toLocaleString(), message: "Your order is successfully placed 🎉" };
+    const resp = await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, templateParams)
     orderMsg.style.display = 'block';
     orderMsg.innerHTML = `Order ${orderId} placed — notification sent to ${escapeHtml(ORDER_NOTIFICATION_EMAIL)}.`;
     // Clear cart if we checked out cart items
