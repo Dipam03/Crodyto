@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>DipamShop — Mini Flipkart-like App</title>
+<title>Crodyto</title>
 
 <!-- EmailJS SDK (client-side) -->
 <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3.2.0/dist/email.min.js"></script>
@@ -86,7 +86,7 @@
       <div class="cat">Categories</div>
       <div class="cat-list" id="categoryList"></div>
       <hr style="margin:12px 0" />
-      <div class="small">Admin tip: Use <strong>Admin</strong> to add products</div>
+      <div class="small">Admin tip: Use <strong>Ap</strong> to add products</div>
     </aside>
 
     <section class="store">
@@ -157,7 +157,7 @@
       <div>
         <label class="small">Admin password (to open admin):</label>
         <input id="adminPassword" placeholder="Set a password, same persists in localStorage" />
-        <div class="small">Set or change the password here. Keep it safe.</div>
+        <div class="small"><button>Set or change the password here. Keep it safe.</button></div>
       </div>
 
     </div>
@@ -217,10 +217,10 @@ let adminPassword = localStorage.getItem(ADMIN_PASS_KEY) || '';
      Example template variables we send: from_name, to_email, order_id, order_items, amount, phone, address
   4. Copy Service ID, Template ID, and Public Key and paste into the placeholders below.
 ------------------------------------ */
-const EMAILJS_SERVICE_ID = 'YOUR_SERVICE_ID';
-const EMAILJS_TEMPLATE_ID = 'YOUR_TEMPLATE_ID';
-const EMAILJS_PUBLIC_KEY = 'YOUR_PUBLIC_KEY';
-const ORDER_NOTIFICATION_EMAIL = 'dipamghosh85@gmail.com'; // recipient (you)
+const EMAILJS_SERVICE_ID = 'service_c4p68ag';
+const EMAILJS_TEMPLATE_ID = 'template_214uijp';
+const EMAILJS_PUBLIC_KEY = 'E8cAV9p-pSYDnM8kE';
+const ORDER_NOTIFICATION_EMAIL = 'dipamghosh220@gmail.com'; // recipient (you)
 
 /* Initialize EmailJS - will work after you set public key */
 if (window.emailjs && EMAILJS_PUBLIC_KEY && EMAILJS_PUBLIC_KEY !== 'YOUR_PUBLIC_KEY') {
@@ -532,7 +532,7 @@ checkoutForm.addEventListener('submit', async (e)=>{
 
   const templateParams = {
     from_name: name,
-    to_email: ORDER_NOTIFICATION_EMAIL,
+    to_email: dipamghosh220@gmail.com,
     order_id: orderId,
     order_items: items.map(it => `${it.title} × ${it.qty}`).join(', '),
     amount: fmt(amount),
@@ -542,7 +542,7 @@ checkoutForm.addEventListener('submit', async (e)=>{
 
   try {
     // emailjs.send(serviceID, templateID, templateParams)
-    const resp = await emailjs.send(service_c4p68ag, template_214uijp, templateParams);
+    const resp = await emailjs.send(service_c4p68ag, template_214uijp, { name: "Dipam", time: new Date().toLocaleString(), message: "Your order is successfully placed 🎉" };
     orderMsg.style.display = 'block';
     orderMsg.innerHTML = `Order ${orderId} placed — notification sent to ${escapeHtml(ORDER_NOTIFICATION_EMAIL)}.`;
     // Clear cart if we checked out cart items
