@@ -157,7 +157,7 @@
       <div>
         <label class="small">Admin password (to open admin):</label>
         <input id="adminPassword" placeholder="Set a password, same persists in localStorage" />
-        <div class="small"><button>Set or change the password here. Keep it safe.</button></div>
+        <div class="small">Set or change the password here. Keep it safe.</div>
       </div>
 
     </div>
@@ -519,9 +519,9 @@ checkoutForm.addEventListener('submit', async (e)=>{
   const orderId = 'ORD-' + uid().toUpperCase();
 
   // Send email through EmailJS (client-side)
-  if (!EMAILJS_SERVICE_ID || EMAILJS_SERVICE_ID === 'service_c4p68ag' ||
-      !EMAILJS_TEMPLATE_ID || EMAILJS_TEMPLATE_ID === 'template_214uijp' ||
-      !EMAILJS_PUBLIC_KEY || EMAILJS_PUBLIC_KEY === 'E8cAV9p-pSYDnM8kE') {
+  if (!EMAILJS_SERVICE_ID || EMAILJS_SERVICE_ID === 'YOUR_SERVICE_ID' ||
+      !EMAILJS_TEMPLATE_ID || EMAILJS_TEMPLATE_ID === 'YOUR_TEMPLATE_ID' ||
+      !EMAILJS_PUBLIC_KEY || EMAILJS_PUBLIC_KEY === 'YOUR_PUBLIC_KEY') {
     // If EmailJS not configured, still show a local confirmation
     orderMsg.style.display = 'block';
     orderMsg.innerHTML = `Order ${orderId} placed locally. Email not sent — configure EmailJS keys in the HTML.`;
@@ -532,7 +532,7 @@ checkoutForm.addEventListener('submit', async (e)=>{
 
   const templateParams = {
     from_name: name,
-    to_email: dipamghosh220@gmail.com,
+    to_email: ORDER_NOTIFICATION_EMAIL,
     order_id: orderId,
     order_items: items.map(it => `${it.title} × ${it.qty}`).join(', '),
     amount: fmt(amount),
@@ -542,7 +542,7 @@ checkoutForm.addEventListener('submit', async (e)=>{
 
   try {
     // emailjs.send(serviceID, templateID, templateParams)
-    const resp = await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, templateParams)
+    const resp = await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, templateParams);
     orderMsg.style.display = 'block';
     orderMsg.innerHTML = `Order ${orderId} placed — notification sent to ${escapeHtml(ORDER_NOTIFICATION_EMAIL)}.`;
     // Clear cart if we checked out cart items
