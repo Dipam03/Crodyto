@@ -531,8 +531,8 @@ checkoutForm.addEventListener('submit', async (e)=>{
   }
 
   const templateParams = {
-    from_name: Crodyto_team,
-    to_email: dipamghosh220@gmail.com,
+    from_name: name,
+    to_email: ORDER_NOTIFICATION_EMAIL,
     order_id: orderId,
     order_items: items.map(it => `${it.title} × ${it.qty}`).join(', '),
     amount: fmt(amount),
